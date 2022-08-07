@@ -12,6 +12,7 @@ So far repo contains:
 - User and Weapon builders;
 - TargetSet and TargetType Builders
 - Complain Builder
+- PromoCode Builder
 
 Current version not tested, repo executed only storage function.
 
