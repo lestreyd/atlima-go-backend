@@ -19,6 +19,9 @@ So far repo contains:
 - Offer and User Agreement interfaces and builders;
 - Notification and Notification Template objects;
 - Slot interface and Slot Builder
+- Penalties builder
+- Confirmation activity builder
+- Penalty Builder
 
 Current version not tested, repo executed only storage function.
 
