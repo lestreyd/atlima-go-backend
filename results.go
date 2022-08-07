@@ -13,9 +13,12 @@ type RefereeGrade struct {
 type Penalty struct {
 	// represent penalty structure
 	// with content
+	content       []Content
 	clause        string
 	disciplines   []Discipline
 	costInSeconds int
+	amount        int
+	active        bool
 	meta          Meta
 }
 
@@ -34,16 +37,18 @@ type Guncheck struct {
 type CourseResult struct {
 	// course fix result for slot
 	// in specific event
-	course  Course
-	A       int
-	C       int
-	D       int
-	M       int
-	NS      int
-	T       float32
-	image   []byte
-	referee RefereeSlot
-	meta    Meta
+	course Course
+	A      int
+	C      int
+	D      int
+	M      int
+	NS     int
+	T      float32
+	image  []byte
+	// bunch of penalties
+	penalties []Penalty
+	referee   RefereeSlot
+	meta      Meta
 }
 
 type Cancellation struct {
