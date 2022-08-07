@@ -1,7 +1,7 @@
 # atlima-go-backend
 Atlima Go Backend Development Version
 
-This Repo - start of total refactoring atlima backend from python dataclasses to Gp structs.
+This Repo - start of total refactoring atlima backend from python dataclasses to Go structs.
 
 So far repo contains:
 - Meta builder for each object in system;
