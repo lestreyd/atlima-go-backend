@@ -5,7 +5,7 @@ type TargetType struct {
 	// structure with allowedResults
 	// as "A" or "ACD"
 	paper          bool
-	image          byte
+	image          []byte
 	allowedResults []string
 	content        Content
 	meta           Meta

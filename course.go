@@ -10,7 +10,7 @@ type Course struct {
 	title         string
 	scoringShoots int
 	minimumShoots int
-	image         byte
+	image         []byte
 	targetSets    []TargetSet
 	content       Content
 	meta          Meta

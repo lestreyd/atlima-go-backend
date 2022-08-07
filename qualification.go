@@ -11,7 +11,7 @@ type Qualification struct {
 	sport             Sport
 	qualificationType int
 	category          int
-	document          byte
+	document          []byte
 	IROA              bool
 	approved          bool
 	dismissed         bool

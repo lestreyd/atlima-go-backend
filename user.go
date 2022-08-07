@@ -11,7 +11,7 @@ type User struct {
 	id       int
 	names    Names
 	contacts Contacts
-	image    byte
+	image    []byte
 	role     string
 	active   bool
 	// salted password

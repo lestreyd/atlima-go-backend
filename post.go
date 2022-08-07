@@ -16,7 +16,7 @@ type Attachment struct {
 	// attached to post entity
 	id             int
 	attachmentType int
-	attachmentData byte
+	attachmentData []byte
 	meta           Meta
 }
 

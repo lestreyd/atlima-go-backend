@@ -6,7 +6,7 @@ type Division struct {
 	// weapons and applied flags
 	id          int
 	content     []Content
-	image       byte
+	image       []byte
 	canBeMinor  bool
 	canBeMajor  bool
 	customStyle bool

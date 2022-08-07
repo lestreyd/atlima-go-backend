@@ -26,7 +26,7 @@ type Guncheck struct {
 	category    int
 	powerFactor int
 	strongHand  int
-	image       byte
+	image       []byte
 	referee     RefereeSlot
 	meta        Meta
 }
@@ -41,7 +41,7 @@ type CourseResult struct {
 	M       int
 	NS      int
 	T       float32
-	image   byte
+	image   []byte
 	referee RefereeSlot
 	meta    Meta
 }

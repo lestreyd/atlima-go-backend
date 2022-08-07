@@ -19,7 +19,7 @@ type Sport struct {
 	id             int
 	site           string
 	slug           string
-	image          byte
+	image          []byte
 	content        []Content
 	moderated      bool
 	administrators []SportAdministrator
@@ -31,7 +31,7 @@ type sport interface {
 	Id(id int)
 	Site(site string)
 	Slug(slug string)
-	WithImage(image byte)
+	WithImage(image []byte)
 	Moderated(moderated bool)
 	WithContent(content []Content)
 	AdministratedBy([]SportAdministrator)
@@ -71,7 +71,7 @@ func (a *SportAvailabilityBuilder) Slug(slug string) *SportAvailabilityBuilder {
 	return a
 }
 
-func (b *SportBuilder) WithImage(image byte) *SportImageBuilder {
+func (b *SportBuilder) WithImage(image []byte) *SportImageBuilder {
 	// add image for sport in builder
 	b.sport.image = image
 	return &SportImageBuilder{*b}

@@ -7,7 +7,7 @@ type Organizer struct {
 	id             int
 	slug           string
 	site           string
-	image          byte
+	image          []byte
 	country        Country
 	region         Region
 	city           City
