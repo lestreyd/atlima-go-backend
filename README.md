@@ -11,6 +11,7 @@ So far repo contains:
 - Interface for each object in system;
 - User and Weapon builders;
 - TargetSet and TargetType Builders
+- Complain Builder
 
 Current version not tested, repo executed only storage function.
 
