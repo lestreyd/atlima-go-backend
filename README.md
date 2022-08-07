@@ -2,13 +2,15 @@
 Atlima Go Backend Development Version
 
 This Repo - start of total refactoring atlima backend from python dataclasses to Go structs.
+Main pattern - Builder Pattern.
 
 So far repo contains:
 - Meta builder for each object in system;
 - Multilanguage support for objects with LanguageBuilder and ContentBuilder;
-- Sport and SportAdministrator builders
-- Interface for each object in system
-- User and Weapon builders
+- Sport and SportAdministrator builders;
+- Interface for each object in system;
+- User and Weapon builders;
+- TargetSet and TargetType Builders
 
 Current version not tested, repo executed only storage function.
 
