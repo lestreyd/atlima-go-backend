@@ -10,12 +10,14 @@ So far repo contains:
 - Sport and SportAdministrator builders;
 - Interface for each object in system;
 - User and Weapon builders;
-- TargetSet and TargetType Builders
-- Complain Builder
-- PromoCode Builder
-- Squad builder
-- Team builder
-- SlotResult builder
+- TargetSet and TargetType Builders;
+- Complain Builder;
+- PromoCode Builder;
+- Squad builder;
+- Team builder;
+- SlotResult builder;
+- Offer and User Agreement interfaces and builders;
+- Notification and Notification Template objects.
 
 Current version not tested, repo executed only storage function.
 
