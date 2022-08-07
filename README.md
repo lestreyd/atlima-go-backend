@@ -14,6 +14,8 @@ So far repo contains:
 - Complain Builder
 - PromoCode Builder
 - Squad builder
+- Team builder
+- SlotResult builder
 
 Current version not tested, repo executed only storage function.
 
