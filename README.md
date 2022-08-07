@@ -17,7 +17,8 @@ So far repo contains:
 - Team builder;
 - SlotResult builder;
 - Offer and User Agreement interfaces and builders;
-- Notification and Notification Template objects.
+- Notification and Notification Template objects;
+- Slot interface and Slot Builder
 
 Current version not tested, repo executed only storage function.
 
