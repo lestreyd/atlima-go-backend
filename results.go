@@ -1,48 +1,5 @@
 package main
 
-type RefereeGrade struct {
-	// shows info about grade from
-	// main referee for referees
-	// in event
-	id          int
-	refereeSlot RefereeSlot
-	event       Event
-	grade       int
-	meta        Meta
-}
-
-type RefereeGradeInterface interface {
-	AvailableBy(id int)
-	For(refereeSlot RefereeSlot)
-	On(event Event)
-	Grade(grade int)
-	WithMeta(meta Meta)
-}
-
-type Penalty struct {
-	// represent penalty structure
-	// with content
-	id            int
-	content       []Content
-	clause        string
-	disciplines   []Discipline
-	costInSeconds int
-	amount        int
-	active        bool
-	meta          Meta
-}
-
-type PenaltyInterface interface {
-	AvailableBy(id int)
-	Clause(clause string)
-	Content(content []Content)
-	In(disciplines []Discipline)
-	Cost(costInSeconds int)
-	Amount(amount int)
-	Active(active bool)
-	WithMeta(meta Meta)
-}
-
 type Guncheck struct {
 	// guncheck fix result for slot
 	// in specific event
