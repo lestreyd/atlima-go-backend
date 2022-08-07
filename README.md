@@ -18,10 +18,11 @@ So far repo contains:
 - SlotResult builder;
 - Offer and User Agreement interfaces and builders;
 - Notification and Notification Template objects;
-- Slot interface and Slot Builder
-- Penalties builder
-- Confirmation activity builder
-- Penalty Builder
+- Slot interface and Slot Builder;
+- Penalties builder;
+- Confirmation activity builder;
+- Penalty Builder;
+- Raw course result from Frontend, Guncheck, Cancellation Builders
 
 Current version not tested, repo executed only storage function.
 
