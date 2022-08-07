@@ -26,7 +26,7 @@ type Sport struct {
 	meta           Meta
 }
 
-type sport interface {
+type SportInterface interface {
 	AvailableBy()
 	Id(id int)
 	Site(site string)

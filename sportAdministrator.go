@@ -14,6 +14,17 @@ type SportAdministrator struct {
 	meta                      Meta
 }
 
+type SportAdministratorInterface interface {
+	AvailableBy(id int)
+	For(user User)
+	InCountry(country Country)
+	InRegion(region Region)
+	SKS(sksMember bool)
+	SKSP(sksPresident bool)
+	RC(refereeCommitteeMember bool)
+	RCP(refereeCommitteePresident bool)
+}
+
 type SportAdministratorBuilder struct {
 	// sport admin builder
 	sportAdministrator *SportAdministrator
@@ -41,7 +52,7 @@ type SportAdministratorUserBuilder struct {
 	SportAdministratorBuilder
 }
 
-func (b *SportAdministratorBuilder) inCountry(country Country) *SportAdministratorCountryBuilder {
+func (b *SportAdministratorBuilder) InCountry(country Country) *SportAdministratorCountryBuilder {
 	// create country for which we delegate administration
 	b.sportAdministrator.country = country
 	return &SportAdministratorCountryBuilder{*b}
@@ -52,7 +63,7 @@ type SportAdministratorCountryBuilder struct {
 	SportAdministratorBuilder
 }
 
-func (b *SportAdministratorBuilder) inRegion(region Region) *SportAdministratorRegionBuilder {
+func (b *SportAdministratorBuilder) InRegion(region Region) *SportAdministratorRegionBuilder {
 	// create region for which we delegate administration
 	// if this parameter is nil we have
 	// a country admin

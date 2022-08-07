@@ -11,6 +11,14 @@ type Language struct {
 	meta   Meta
 }
 
+type LanguageInterface interface {
+	AvailableBy(id int)
+	Name(name string)
+	Code(code string)
+	Weight(weight int)
+	WithMeta(meta Meta)
+}
+
 type LanguageBuilder struct {
 	//builder for language
 	language *Language
@@ -40,7 +48,7 @@ func (b *LanguageBuilder) Weight(weight int) *LanguageWeightBuilder {
 	return &LanguageWeightBuilder{*b}
 }
 
-func (b *LanguageBuilder) Meta(meta Meta) *LanguageMetaBuilder {
+func (b *LanguageBuilder) WithMeta(meta Meta) *LanguageMetaBuilder {
 	// metadata for language
 	b.language.meta = meta
 	return &LanguageMetaBuilder{*b}

@@ -11,3 +11,13 @@ type Names struct {
 	nativeMiddleName string
 	meta             Meta
 }
+
+type NamesInterface interface {
+	CalledBy()
+	First(firstName string)
+	Middle(middleName string)
+	Last(lastName string)
+	FirstNative(firstNative string)
+	LastNative(lastNative string)
+	MiddleNative(middleNative string)
+}

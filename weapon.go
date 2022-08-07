@@ -8,3 +8,10 @@ type Weapon struct {
 	abbreviations []Content
 	meta          Meta
 }
+
+type WeaponInterface interface {
+	AvailableBy(id int)
+	Image(image []byte)
+	Abbreviations(abbreviations []Content)
+	WithMeta(meta Meta)
+}

@@ -11,6 +11,16 @@ type Comment struct {
 	meta          Meta
 }
 
+type CommentInterface interface {
+	For(commentableId int)
+	WithId(commentId int)
+	From(user User)
+	Send(message string)
+	To(replyId int)
+	SetDeleted(deleted bool)
+	WithMeta(meta Meta)
+}
+
 type Attachment struct {
 	// contains information about
 	// attached to post entity
@@ -20,10 +30,16 @@ type Attachment struct {
 	meta           Meta
 }
 
+type AttachmentInterface interface {
+	AvailableBy(id int)
+	WithType(attachmentType int)
+	WithData(attachmentData []byte)
+	WithMeta(meta Meta)
+}
+
 type Post struct {
 	// contains information about
 	// post, likes, views and etc
-	content     Content
 	text        string
 	creator     User
 	organizer   Organizer
@@ -33,4 +49,13 @@ type Post struct {
 	postLikes   []User
 	attachments []Attachment
 	meta        Meta
+}
+
+type PostInterface interface {
+	From(creator User)
+	PresentedAs(organizer Organizer)
+	WithText(text string)
+	WithComments(comments []Comment)
+	WithAttachments(attachments []Attachment)
+	WithMeta(meta Meta)
 }

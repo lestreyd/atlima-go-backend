@@ -14,6 +14,17 @@ type Country struct {
 	meta     Meta
 }
 
+type CountryInterface interface {
+	AvailableBy(id int)
+	Titles(titles []Content)
+	A2(alpha2 string)
+	A3(alpha3 string)
+	ISO(iso int)
+	Location(location Location)
+	Precise(precise string)
+	weight(weight int)
+}
+
 type Region struct {
 	//representation of region with
 	//name and code fields
@@ -22,6 +33,14 @@ type Region struct {
 	titles  []Content
 	code    int
 	meta    Meta
+}
+
+type RegionInterface interface {
+	AvailableBy(id int)
+	InCountry(country Country)
+	Titles(titles []Content)
+	Code(code int)
+	WithMeta(meta Meta)
 }
 
 type City struct {
@@ -33,11 +52,27 @@ type City struct {
 	meta   Meta
 }
 
+type CityInterface interface {
+	AvailableBy(id int)
+	InRegion(region Region)
+	Titles(titles []Content)
+	WithMeta(meta Meta)
+}
+
 type Location struct {
 	// represents a location info
 	// about user
+	id      int
 	country Country
 	region  Region
 	city    City
 	meta    Meta
+}
+
+type LocationInterface interface {
+	AvailableBy(id int)
+	InCountry(country Country)
+	InRegion(region Region)
+	InCity(city City)
+	WithMeta(meta Meta)
 }

@@ -10,6 +10,13 @@ type RefereeGrade struct {
 	meta        Meta
 }
 
+type RefereeGradeInterface interface {
+	For(refereeSlot RefereeSlot)
+	On(event Event)
+	Grade(grade int)
+	WithMeta(meta Meta)
+}
+
 type Penalty struct {
 	// represent penalty structure
 	// with content
@@ -22,6 +29,16 @@ type Penalty struct {
 	meta          Meta
 }
 
+type PenaltyInterface interface {
+	Clause(clause string)
+	Content(content []Content)
+	In(disciplines []Discipline)
+	Cost(costInSeconds int)
+	Amount(amount int)
+	Active(active bool)
+	WithMeta(meta Meta)
+}
+
 type Guncheck struct {
 	// guncheck fix result for slot
 	// in specific event
@@ -32,6 +49,15 @@ type Guncheck struct {
 	image       []byte
 	referee     RefereeSlot
 	meta        Meta
+}
+
+type GuncheckInterface interface {
+	In(discipline Discipline)
+	Category(category int)
+	PowerFactor(powerFactor int)
+	StrongHand(strongHand int)
+	Reference(image []byte)
+	WithMeta(meta Meta)
 }
 
 type CourseResult struct {
@@ -51,12 +77,36 @@ type CourseResult struct {
 	meta      Meta
 }
 
+type CourseResultInterface interface {
+	For(course Course)
+	Set()
+	A(A int)
+	C(C int)
+	D(D int)
+	M(M int)
+	NS(NS int)
+	T(T float32)
+	Reference(image []byte)
+	Penalties(penalties []Penalty)
+	Referee(referee RefereeSlot)
+	WithMeta(meta Meta)
+}
+
 type Cancellation struct {
 	// disqualification from event
 	course           Course
 	cancellationType int    // DNS/DQ
 	reason           string // Why?
-	image            byte
+	image            []byte
 	referee          RefereeSlot
 	meta             Meta
+}
+
+type CancellationInterface interface {
+	For(course Course)
+	What(cancellationType int)
+	Why(reason string)
+	Reference(image []byte)
+	Referee(referee RefereeSlot)
+	WithMeta(meta Meta)
 }

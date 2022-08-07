@@ -10,6 +10,13 @@ type Content struct {
 	meta        Meta
 }
 
+type ContentInterface interface {
+	AvailableBy(id int)
+	WithLanguage(language Language)
+	WithTitle(title, description string)
+	WithMeta(meta Meta)
+}
+
 type ContentBuilder struct {
 	content *Content
 }
@@ -36,24 +43,14 @@ type ContentLanguageBuilder struct {
 	ContentBuilder
 }
 
-func (b *ContentBuilder) Title(title string) *ContentTitleBuilder {
+func (b *ContentBuilder) Title(title string, description string) *ContentTitleBuilder {
 	//create title for multilingual text
 	b.content.title = title
+	b.content.description = description
 	return &ContentTitleBuilder{*b}
 }
 
 type ContentTitleBuilder struct {
-	// builder for id of language
-	ContentBuilder
-}
-
-func (b *ContentBuilder) Description(title string) *ContentDescriptionBuilder {
-	//create description for multilingual text
-	b.content.title = title
-	return &ContentDescriptionBuilder{*b}
-}
-
-type ContentDescriptionBuilder struct {
 	// builder for id of language
 	ContentBuilder
 }

@@ -14,3 +14,17 @@ type Complain struct {
 	moderatorIp string
 	meta        Meta
 }
+
+type ComplaintInterface interface {
+	ApplyTo()
+	Object(objectType int)
+	WithId(objectId int)
+	From()
+	User(user User)
+	WithUserIp(userIp string)
+	WithReason(reason int)
+	ModeratedBy()
+	Moderator(user User)
+	WithModeratorIp(moderatorIp string)
+	WithMeta(meta Meta)
+}

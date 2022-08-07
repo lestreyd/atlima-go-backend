@@ -10,3 +10,12 @@ type Contacts struct {
 	instagram string
 	meta      Meta
 }
+
+type ContactInterface interface {
+	Email(email string)
+	Phone(phone string)
+	Facebook(facebook string)
+	Vk(vk string)
+	Instagram(instagram string)
+	WithMeta(meta Meta)
+}

@@ -19,3 +19,16 @@ type Qualification struct {
 	approvedDate      time.Time
 	meta              Meta
 }
+
+type QualificationInterface interface {
+	For(sport Sport)
+	Qualification(qualificationType int)
+	Category(category int)
+	Document(document []byte)
+	IROA(IROA bool)
+	Approved(approved bool)
+	Dismissed(dismissed bool)
+	Reason(dismissReason string)
+	ApproveDate(approvedDate time.Time)
+	WithMeta(meta Meta)
+}

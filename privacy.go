@@ -1,7 +1,5 @@
 package main
 
-import "time"
-
 type PrivacyConfiguration struct {
 	// represent a privacy configuration
 	// for user with visibility attributes
@@ -11,7 +9,16 @@ type PrivacyConfiguration struct {
 	wantToGetMails    int
 	whoCanSendMessage []User
 	blocked           []User
-	createdAt         time.Time
-	updatedAt         time.Time
 	meta              Meta
+}
+
+type PrivacyConfigurationInterface interface {
+	Visibility()
+	Phone(phoneVisibility int)
+	Email(emailVisibility int)
+	GetMails(wantToGetMails int)
+	Access()
+	CanMessage(whoCanSendMessage []User)
+	Blocked(blocked []User)
+	WithMeta(meta Meta)
 }

@@ -9,3 +9,10 @@ type RefereeSlot struct {
 	role int
 	meta Meta
 }
+
+type RefereeSlotInterface interface {
+	AvailableBy(id int)
+	For(user User)
+	GrantedRole(role int)
+	WithMeta(meta Meta)
+}

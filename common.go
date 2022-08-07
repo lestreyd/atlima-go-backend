@@ -20,6 +20,13 @@ type Meta struct {
 	updatedAt time.Time
 }
 
+type MetaInterface interface {
+	AvailableBy(id int)
+	Show(showedAs string)
+	CreatedAt()
+	UpdatedAt(updatedAt time.Time)
+}
+
 type MetaBuilder struct {
 	meta *Meta
 }

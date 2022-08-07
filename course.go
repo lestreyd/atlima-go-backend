@@ -15,3 +15,12 @@ type Course struct {
 	content       Content
 	meta          Meta
 }
+
+type CourseInterface interface {
+	AvailableBy(id int)
+	WithTitle(title string)
+	WithImage(image []byte)
+	WithTargetSets(targetSet []TargetSet)
+	WithContent(content Content)
+	WithMeta(meta Meta)
+}
