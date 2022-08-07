@@ -8,6 +8,6 @@ So far repo contains:
 - Multilanguage support for objects with LanguageBuilder and ContentBuilder;
 - Sport and SportAdministrator builders
 
-Current version not tested, repo executed only storing function.
+Current version not tested, repo executed only storage function.
 
 bb xoxo
