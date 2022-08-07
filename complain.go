@@ -4,6 +4,7 @@ type Complain struct {
 	// complain representation structure
 	// with user and moderator information
 	// inside
+	id          int
 	objectType  int
 	objectId    int
 	user        User
@@ -16,6 +17,7 @@ type Complain struct {
 }
 
 type ComplaintInterface interface {
+	AvailableBy(id int)
 	ApplyTo()
 	Object(objectType int)
 	WithId(objectId int)

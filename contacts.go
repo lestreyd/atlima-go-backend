@@ -3,6 +3,7 @@ package main
 type Contacts struct {
 	// represents a contacts information
 	// about user
+	id        int
 	email     string
 	phone     string
 	facebook  string
@@ -12,6 +13,7 @@ type Contacts struct {
 }
 
 type ContactInterface interface {
+	AvailableBy(id int)
 	Email(email string)
 	Phone(phone string)
 	Facebook(facebook string)

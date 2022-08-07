@@ -6,6 +6,7 @@ type PromoCode struct {
 	// represent PromoCode structure
 	// with titles and discount
 	// properties
+	id         int
 	title      string
 	discount   float32
 	limit      int
@@ -16,6 +17,7 @@ type PromoCode struct {
 }
 
 type PromoCodeInterface interface {
+	AvailableBy(id int)
 	Title(title string)
 	Discount(discount float32)
 	Limit(limit int)

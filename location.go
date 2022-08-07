@@ -22,7 +22,8 @@ type CountryInterface interface {
 	ISO(iso int)
 	Location(location Location)
 	Precise(precise string)
-	weight(weight int)
+	Weight(weight int)
+	WithMeta(meta Meta)
 }
 
 type Region struct {

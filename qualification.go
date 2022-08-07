@@ -8,6 +8,7 @@ type Qualification struct {
 	// representation of Qualification class
 	// contains information about user qualification
 	// in specific sport and category
+	id                int
 	sport             Sport
 	qualificationType int
 	category          int
@@ -21,6 +22,7 @@ type Qualification struct {
 }
 
 type QualificationInterface interface {
+	AvailableBy(id int)
 	For(sport Sport)
 	Qualification(qualificationType int)
 	Category(category int)

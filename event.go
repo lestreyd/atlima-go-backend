@@ -60,6 +60,7 @@ type EventAdministration struct {
 	// information about
 	// specific administration
 	// of event (with referees)
+	id             int
 	referees       []RefereeSlot
 	director       User
 	administrators []User
@@ -68,6 +69,7 @@ type EventAdministration struct {
 }
 
 type EventAdministrationInterface interface {
+	AvailableBy(id int)
 	Set()
 	Referees(referees []RefereeSlot)
 	Director(director User)

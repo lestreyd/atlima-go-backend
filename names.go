@@ -20,4 +20,5 @@ type NamesInterface interface {
 	FirstNative(firstNative string)
 	LastNative(lastNative string)
 	MiddleNative(middleNative string)
+	WithMeta(meta Meta)
 }

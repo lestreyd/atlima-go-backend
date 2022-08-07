@@ -40,6 +40,7 @@ type AttachmentInterface interface {
 type Post struct {
 	// contains information about
 	// post, likes, views and etc
+	id          int
 	text        string
 	creator     User
 	organizer   Organizer
@@ -52,6 +53,7 @@ type Post struct {
 }
 
 type PostInterface interface {
+	AvailableBy(id int)
 	From(creator User)
 	PresentedAs(organizer Organizer)
 	WithText(text string)

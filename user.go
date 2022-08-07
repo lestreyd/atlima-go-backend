@@ -63,4 +63,5 @@ type UserInterface interface {
 	InCountry(country Country)
 	InRegion(region Region)
 	InCity(city City)
+	WithMeta(meta Meta)
 }

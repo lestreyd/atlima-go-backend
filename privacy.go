@@ -4,6 +4,7 @@ type PrivacyConfiguration struct {
 	// represent a privacy configuration
 	// for user with visibility attributes
 	// and block/message control
+	id                int
 	phoneVisibility   int
 	emailVisibility   int
 	wantToGetMails    int
@@ -13,6 +14,7 @@ type PrivacyConfiguration struct {
 }
 
 type PrivacyConfigurationInterface interface {
+	AvailableBy(id int)
 	Visibility()
 	Phone(phoneVisibility int)
 	Email(emailVisibility int)
