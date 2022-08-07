@@ -13,6 +13,7 @@ So far repo contains:
 - TargetSet and TargetType Builders
 - Complain Builder
 - PromoCode Builder
+- Squad builder
 
 Current version not tested, repo executed only storage function.
 
