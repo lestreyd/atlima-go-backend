@@ -4,7 +4,7 @@ import "time"
 
 // meta attached at every object in system
 // and can be created with constructor
-// as MetaBuilder.showedAs('Hello').CreatedAt().UpdatedAt(now)
+// as MetaBuilder.AvailableBy(1).showedAs('Hello').CreatedAt().UpdatedAt(now)
 // or meta.UpdatedAt(now) if I want update timestamp
 // on meta only.
 // So we can get sport.meta.createdAt or sport.meta.updatedAt

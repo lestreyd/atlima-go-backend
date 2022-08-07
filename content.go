@@ -48,7 +48,7 @@ type ContentTitleBuilder struct {
 }
 
 func (b *ContentBuilder) Description(title string) *ContentDescriptionBuilder {
-	//create title for multilingual text
+	//create description for multilingual text
 	b.content.title = title
 	return &ContentDescriptionBuilder{*b}
 }

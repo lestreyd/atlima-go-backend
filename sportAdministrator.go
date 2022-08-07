@@ -42,7 +42,7 @@ type SportAdministratorUserBuilder struct {
 }
 
 func (b *SportAdministratorBuilder) inCountry(country Country) *SportAdministratorCountryBuilder {
-	// create coutry for which we delegate administration
+	// create country for which we delegate administration
 	b.sportAdministrator.country = country
 	return &SportAdministratorCountryBuilder{*b}
 }
@@ -53,18 +53,20 @@ type SportAdministratorCountryBuilder struct {
 }
 
 func (b *SportAdministratorBuilder) inRegion(region Region) *SportAdministratorRegionBuilder {
-	// create coutry for which we delegate administration
+	// create region for which we delegate administration
+	// if this parameter is nil we have
+	// a country admin
 	b.sportAdministrator.region = region
 	return &SportAdministratorRegionBuilder{*b}
 }
 
 type SportAdministratorRegionBuilder struct {
-	// builder for country of sport administrator
+	// builder for region of sport administrator
 	SportAdministratorBuilder
 }
 
 func (b *SportAdministratorBuilder) isSKSMember(sksMember bool) *SportAdministratorSksMemberBuilder {
-	// create coutry for which we delegate administration
+	// create sks member for which we delegate administration
 	b.sportAdministrator.sksMember = sksMember
 	return &SportAdministratorSksMemberBuilder{*b}
 }
@@ -75,39 +77,39 @@ type SportAdministratorSksMemberBuilder struct {
 }
 
 func (b *SportAdministratorBuilder) isSKSPresident(sksPresident bool) *SportAdministratorSksPresidentBuilder {
-	// create coutry for which we delegate administration
+	// create sks president for which we delegate administration
 	b.sportAdministrator.sksPresident = sksPresident
 	return &SportAdministratorSksPresidentBuilder{*b}
 }
 
 type SportAdministratorSksPresidentBuilder struct {
-	// builder for country of sport administrator
+	// builder for sks president
 	SportAdministratorBuilder
 }
 
 func (b *SportAdministratorBuilder) isRefereeCommitteeMember(refereeCommitteeMember bool) *SportAdministratorRCMemberBuilder {
-	// create coutry for which we delegate administration
+	// create Referee Committee member for which we delegate administration
 	b.sportAdministrator.sksPresident = refereeCommitteeMember
 	return &SportAdministratorRCMemberBuilder{*b}
 }
 
 type SportAdministratorRCMemberBuilder struct {
-	// builder for country of sport administrator
+	// builder referee committee member on sport administrator
 	SportAdministratorBuilder
 }
 
 func (b *SportAdministratorBuilder) isRefereeCommitteePresident(refereeCommitteeMember bool) *SportAdministratorRCPresidentBuilder {
-	// create coutry for which we delegate administration
+	// create referee committee president on sport administrator
 	b.sportAdministrator.sksPresident = refereeCommitteeMember
 	return &SportAdministratorRCPresidentBuilder{*b}
 }
 
 type SportAdministratorRCPresidentBuilder struct {
-	// builder for country of sport administrator
+	// builder for referee committee president
 	SportAdministratorBuilder
 }
 
 func (b *SportAdministratorBuilder) Build() *SportAdministrator {
-	// provides language object for text blocks
+	// provides SportAdministrator type object for sport administration
 	return b.sportAdministrator
 }

@@ -23,12 +23,13 @@ type PriceOption struct {
 
 type EventControlFlags struct {
 	// all control flags for event
-	banned     bool
-	approved   bool
-	moderated  bool
-	hasResults bool
-	completed  bool
-	meta       Meta
+	banned           bool
+	bannedModeration bool
+	approved         bool
+	moderated        bool
+	hasResults       bool
+	completed        bool
+	meta             Meta
 }
 
 type EventAdministration struct {
@@ -65,6 +66,7 @@ type Event struct {
 	format               int
 	evsk                 EVSK
 	slots                []Slot
+	squads               []Squad
 	location             Location
 	administration       EventAdministration
 	status               int

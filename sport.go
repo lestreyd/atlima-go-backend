@@ -72,13 +72,13 @@ func (a *SportAvailabilityBuilder) Slug(slug string) *SportAvailabilityBuilder {
 }
 
 func (b *SportBuilder) WithImage(image byte) *SportImageBuilder {
-	// add content array
+	// add image for sport in builder
 	b.sport.image = image
 	return &SportImageBuilder{*b}
 }
 
 type SportImageBuilder struct {
-	// builder for country of sport administrator
+	// add image for sport in builder
 	SportBuilder
 }
 
@@ -89,7 +89,9 @@ func (b *SportBuilder) Moderated(moderated bool) *SportModerationBuilder {
 }
 
 type SportModerationBuilder struct {
-	// builder for country of sport administrator
+	// set moderation status propagated to events
+	// false - events not moderated
+	// true - events are moderated
 	SportBuilder
 }
 
@@ -107,7 +109,7 @@ type SportContentBuilder struct {
 }
 
 func (b *SportBuilder) AdministratedBy(sportAdministrator []SportAdministrator) *SportAdministratorForSportBuilder {
-	// add administrator to administrators array
+	// add administrators to administrators array
 	for i := range sportAdministrator {
 		b.sport.administrators = append(b.sport.administrators, sportAdministrator[i])
 	}
@@ -115,11 +117,11 @@ func (b *SportBuilder) AdministratedBy(sportAdministrator []SportAdministrator) 
 }
 
 type SportAdministratorForSportBuilder struct {
-	// builder for country of sport administrator
+	// builder for administrators
 	SportBuilder
 }
 
 func (b *SportBuilder) Build() *Sport {
-	// provides language object for text blocks
+	// SportBuilder object
 	return b.sport
 }

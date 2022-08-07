@@ -9,10 +9,12 @@ type User struct {
 	// with role and other properties as phone
 	// and privacy configuration
 	id       int
+	names    Names
 	contacts Contacts
 	image    byte
 	role     string
 	active   bool
+	// salted password
 	password string
 	// oauth2 tokens
 	authToken    string
@@ -27,6 +29,7 @@ type User struct {
 	// privacy configuration
 	// must be created by default
 	// in user constructor
+	sex            int
 	privacy        PrivacyConfiguration
 	qualifications []Qualification
 	strongHand     int
