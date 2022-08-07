@@ -8,6 +8,7 @@ So far repo contains:
 - Multilanguage support for objects with LanguageBuilder and ContentBuilder;
 - Sport and SportAdministrator builders
 - Interface for each object in system
+- User and Weapon builders
 
 Current version not tested, repo executed only storage function.
 
