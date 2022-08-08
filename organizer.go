@@ -39,7 +39,7 @@ type OrganizerInterface interface {
 	// fields for storing data about contacts
 	WithContacts(contacts Contacts)
 	// WithContent :Multilingual text can be storing here
-	WithContent(content Content)
+	WithContent(content []Content)
 	// AdministratedBy usually point at array
 	// of users with administrator rights for
 	// editing organizer and events for this
@@ -51,4 +51,110 @@ type OrganizerInterface interface {
 
 type OrganizerBuilder struct {
 	organizer *Organizer
+}
+
+func (b *OrganizerBuilder) AvailableBy() *OrganizerAvailabilityBuilder {
+	// builder for meta
+	return &OrganizerAvailabilityBuilder{*b}
+}
+
+type OrganizerAvailabilityBuilder struct {
+	// builder meta
+	OrganizerBuilder
+}
+
+func (b *OrganizerBuilder) Id(id int) *OrganizerAvailabilityBuilder {
+	// builder for meta
+	b.organizer.id = id
+	return &OrganizerAvailabilityBuilder{*b}
+}
+
+func (b *OrganizerBuilder) Slug(slug string) *OrganizerAvailabilityBuilder {
+	// builder for meta
+	b.organizer.slug = slug
+	return &OrganizerAvailabilityBuilder{*b}
+}
+
+func (b *OrganizerBuilder) Site(site string) *OrganizerAvailabilityBuilder {
+	// builder for meta
+	b.organizer.site = site
+	return &OrganizerAvailabilityBuilder{*b}
+}
+
+func (b *OrganizerBuilder) Located() *OrganizerLocationBuilder {
+	return &OrganizerLocationBuilder{*b}
+}
+
+type OrganizerLocationBuilder struct {
+	// builder meta
+	OrganizerBuilder
+}
+
+func (b *OrganizerBuilder) InCountry(country Country) *OrganizerLocationBuilder {
+	b.organizer.country = country
+	return &OrganizerLocationBuilder{*b}
+}
+
+func (b *OrganizerBuilder) InRegion(region Region) *OrganizerLocationBuilder {
+	b.organizer.region = region
+	return &OrganizerLocationBuilder{*b}
+}
+
+func (b *OrganizerBuilder) InCity(city City) *OrganizerLocationBuilder {
+	b.organizer.city = city
+	return &OrganizerLocationBuilder{*b}
+}
+
+func (b *OrganizerBuilder) WithContacts(contacts Contacts) *OrganizerContactsBuilder {
+	// add Meta object to SlotResult
+	b.organizer.contacts = contacts
+	return &OrganizerContactsBuilder{*b}
+}
+
+type OrganizerContactsBuilder struct {
+	// builder for meta
+	OrganizerBuilder
+}
+
+func (b *OrganizerBuilder) WithContent(contents []Content) *OrganizerContentBuilder {
+	// add Meta object to SlotResult
+	for i := range contents {
+		b.organizer.content = append(b.organizer.content, contents[i])
+	}
+
+	return &OrganizerContentBuilder{*b}
+}
+
+type OrganizerContentBuilder struct {
+	// builder for meta
+	OrganizerBuilder
+}
+
+func (b *OrganizerBuilder) AdministratedBy(users []User) *OrganizerAdministratorsBuilder {
+	// add Meta object to SlotResult
+	for i := range users {
+		b.organizer.administrators = append(b.organizer.administrators, users[i])
+	}
+	return &OrganizerAdministratorsBuilder{*b}
+}
+
+type OrganizerAdministratorsBuilder struct {
+	// builder for meta
+	OrganizerBuilder
+}
+
+func (b *OrganizerBuilder) WithMeta(meta Meta) *OrganizerMetaBuilder {
+	// add Meta object to SlotResult
+	b.organizer.meta = meta
+	return &OrganizerMetaBuilder{*b}
+}
+
+type OrganizerMetaBuilder struct {
+	// builder for meta
+	OrganizerBuilder
+}
+
+func (b *OrganizerBuilder) Build() *Organizer {
+	// Privacy object
+	return b.organizer
 }

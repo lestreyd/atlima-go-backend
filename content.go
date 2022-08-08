@@ -43,7 +43,7 @@ type ContentLanguageBuilder struct {
 	ContentBuilder
 }
 
-func (b *ContentBuilder) Title(title string, description string) *ContentTitleBuilder {
+func (b *ContentBuilder) WithTitle(title string, description string) *ContentTitleBuilder {
 	//create title for multilingual text
 	b.content.title = title
 	b.content.description = description
@@ -55,7 +55,7 @@ type ContentTitleBuilder struct {
 	ContentBuilder
 }
 
-func (b *ContentBuilder) Meta(meta Meta) *ContentMetaBuilder {
+func (b *ContentBuilder) WithMeta(meta Meta) *ContentMetaBuilder {
 	//create meta for multilingual text
 	b.content.meta = meta
 	return &ContentMetaBuilder{*b}
@@ -64,4 +64,9 @@ func (b *ContentBuilder) Meta(meta Meta) *ContentMetaBuilder {
 type ContentMetaBuilder struct {
 	// builder for id of language
 	ContentBuilder
+}
+
+func (b *ContentBuilder) Build() *Content {
+	// Slot result by specific Course
+	return b.content
 }

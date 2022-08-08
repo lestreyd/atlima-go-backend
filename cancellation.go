@@ -1,8 +1,10 @@
 package main
 
 type Cancellation struct {
-	// disqualification from event
+	// Cancellation type from event
 	// can be 0 (DNS - don't started) or 1 (DQ - disqualified)
+	// Cancellation must immediately set flag
+	// dontIncludeInRatingCalculation on Slot
 	id               int
 	course           Course
 	cancellationType int    // DNS/DQ
